@@ -120,7 +120,7 @@ async def button(bot, update):
             reply_markup=Translation.START_BUTTONS,
             disable_web_page_preview=True
         )
-    elif "|" in update.data:
+    elif "*" in update.data:
         await zee5_execute(bot, update)    
     elif update.data == "help":
         await update.message.edit_text(
