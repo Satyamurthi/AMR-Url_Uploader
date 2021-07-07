@@ -120,6 +120,8 @@ async def button(bot, update):
             reply_markup=Translation.START_BUTTONS,
             disable_web_page_preview=True
         )
+    elif "|" in update.data:
+        await zee5_execute(bot, update)    
     elif update.data == "help":
         await update.message.edit_text(
             text=Translation.HELP_TEXT,
@@ -133,13 +135,4 @@ async def button(bot, update):
             disable_web_page_preview=True
         )
     else:
-        await update.message.delete()
-
-@Client.on_callback_query()
-async def formatbuttons(bot, update):
-       
-    if "|" in update.data:
-        await zee5_execute(bot, update)
-        
-    elif "closeformat" in update.data:     
         await update.message.delete()
